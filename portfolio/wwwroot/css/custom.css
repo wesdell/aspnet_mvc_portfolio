@@ -18,6 +18,11 @@
         font-size: 1.25rem;
     }
 
+.skills i {
+    color: cornflowerblue;
+    font-size: 3rem;
+}
+
 .skills ul {
     padding: 0;
     list-style: none;
