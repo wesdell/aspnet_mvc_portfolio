@@ -15,7 +15,13 @@ namespace portfolio.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            User user = new User()
+            {
+                Name = "John Doe",
+                Age = 20
+            };
+
+            return View(user);
         }
 
         public IActionResult Privacy()
