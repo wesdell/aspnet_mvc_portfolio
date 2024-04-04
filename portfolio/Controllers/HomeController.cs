@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using portfolio.Models;
+using portfolio.Services;
 using System.Diagnostics;
 
 namespace portfolio.Controllers
@@ -13,55 +14,11 @@ namespace portfolio.Controllers
 			_logger = logger;
 		}
 
-		private User GetUser()
-		{
-			return new User()
-			{
-				Name = "John Doe",
-				Age = 20
-			};
-		}
-
-		private List<ProjectViewModel> GetProjects()
-		{
-			return new List<ProjectViewModel>()
-			{
-				new ProjectViewModel()
-				{
-					Title = "Lorem",
-					Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-					ImageURL = "/img/unknown.jpg",
-					Link = "https://amazon.com"
-				},
-				new ProjectViewModel()
-				{
-					Title = "Ipsum",
-					Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-					ImageURL = "/img/unknown.jpg",
-					Link = "https://facebook.com"
-				},
-				new ProjectViewModel()
-				{
-					Title = "Lorem",
-					Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-					ImageURL = "/img/unknown.jpg",
-					Link = "https://amazon.com"
-				},
-				new ProjectViewModel()
-				{
-					Title = "Ipsum",
-					Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-					ImageURL = "/img/unknown.jpg",
-					Link = "https://facebook.com"
-				}
-			};
-		}
-
 		public IActionResult Index()
 		{
-			User user = GetUser();
-			List<ProjectViewModel> projects = GetProjects().Take(3).ToList();
-			HomeIndexViewModel model = new HomeIndexViewModel() { Projects = projects, User = user };
+			UserMock userData = new UserMock();
+			ProjectsMock projectsData = new ProjectsMock();
+			HomeIndexViewModel model = new HomeIndexViewModel() { Projects = projectsData.GetProjects().Take(3).ToList(), User = userData.GetUser() };
 
 			return View(model);
 		}
