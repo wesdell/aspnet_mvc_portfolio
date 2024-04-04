@@ -8,18 +8,19 @@ namespace portfolio.Controllers
 	public class HomeController : Controller
 	{
 		private readonly ILogger<HomeController> _logger;
+		private readonly UserMock _user;
+		private readonly ProjectsMock _projects;
 
-		public HomeController(ILogger<HomeController> logger)
+		public HomeController(ILogger<HomeController> logger, UserMock user, ProjectsMock projects)
 		{
-			_logger = logger;
+			this._logger = logger;
+			this._user = user;
+			this._projects = projects;
 		}
 
 		public IActionResult Index()
 		{
-			UserMock userData = new UserMock();
-			ProjectsMock projectsData = new ProjectsMock();
-			HomeIndexViewModel model = new HomeIndexViewModel() { Projects = projectsData.GetProjects().Take(3).ToList(), User = userData.GetUser() };
-
+			HomeIndexViewModel model = new HomeIndexViewModel() { Projects = _projects.GetProjects().Take(3).ToList(), User = _user.GetUser() };
 			return View(model);
 		}
 
