@@ -13,6 +13,15 @@ namespace portfolio.Controllers
 			_logger = logger;
 		}
 
+		private User GetUser()
+		{
+			return new User()
+			{
+				Name = "John Doe",
+				Age = 20
+			};
+		}
+
 		private List<ProjectViewModel> GetProjects()
 		{
 			return new List<ProjectViewModel>()
@@ -50,8 +59,9 @@ namespace portfolio.Controllers
 
 		public IActionResult Index()
 		{
+			User user = GetUser();
 			List<ProjectViewModel> projects = GetProjects().Take(3).ToList();
-			HomeIndexViewModel model = new HomeIndexViewModel() { Projects = projects };
+			HomeIndexViewModel model = new HomeIndexViewModel() { Projects = projects, User = user };
 
 			return View(model);
 		}
