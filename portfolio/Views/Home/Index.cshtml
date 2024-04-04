@@ -4,31 +4,6 @@
 	ViewData["Title"] = "Home Page";
 }
 
-<partial name="_About" />
+<partial name="_About" model=@Model.User />
 <partial name="_Skills" />
-
-@if (@Model.Projects != null) {
-	<div class="text-center" style="padding-top: 5rem">
-		<h1>Projects</h1>
-		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-	</div>
-
-	<div class="container">
-		<div class="row row-cols-1 row-cols-md-3 g-4">
-			@foreach(var project in Model.Projects) {
-				<div class="col">
-					<div class="card h-100">
-						<img src="@project.ImageURL" alt="Project" class="card-img-top"/>
-						<div class="card-body">
-							<h5 class="card-title">@project.Title</h5>
-							<p class="card-text">@project.Description</p>
-						</div>
-						<div class="card-footer">
-							<a href="@project.Link" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit</a>
-						</div>
-					</div>
-				</div>
-			}
-		</div>
-	</div>
-}
+<partial name="_Projects" model=@Model.Projects />
