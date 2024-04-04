@@ -1,8 +1,9 @@
-﻿using portfolio.Models;
+﻿using portfolio.Interfaces;
+using portfolio.Models;
 
 namespace portfolio.Services
 {
-	public class ProjectsMock
+	public class ProjectsMock : IProjects
 	{
 		public List<ProjectViewModel> GetProjects()
 		{

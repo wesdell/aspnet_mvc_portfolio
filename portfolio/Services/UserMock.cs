@@ -1,8 +1,9 @@
-﻿using portfolio.Models;
+﻿using portfolio.Interfaces;
+using portfolio.Models;
 
 namespace portfolio.Services
 {
-	public class UserMock
+	public class UserMock : IUsers
 	{
 		public User GetUser()
 		{
