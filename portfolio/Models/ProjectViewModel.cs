@@ -1,6 +1,8 @@
-﻿namespace portfolio.Models
+﻿using portfolio.Interfaces;
+
+namespace portfolio.Models
 {
-	public class ProjectViewModel
+	public class ProjectViewModel : IProject
 	{
 		public string Title { get; set; }
 		public string Description { get; set; }
