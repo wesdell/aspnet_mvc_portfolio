@@ -1,4 +1,5 @@
 using portfolio.Services;
+using portfolio.Interfaces;
 
 namespace portfolio
 {
@@ -10,8 +11,8 @@ namespace portfolio
 
 			// Add services to the container.
 			builder.Services.AddControllersWithViews();
-			builder.Services.AddTransient<ProjectsMock>();
-			builder.Services.AddTransient<UserMock>();
+			builder.Services.AddTransient<IProjects, ProjectsMock>();
+			builder.Services.AddTransient<IUsers, UserMock>();
 
 			var app = builder.Build();
 

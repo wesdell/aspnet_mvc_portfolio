@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using portfolio.Interfaces;
 using portfolio.Models;
-using portfolio.Services;
 using System.Diagnostics;
 
 namespace portfolio.Controllers
@@ -8,10 +8,10 @@ namespace portfolio.Controllers
 	public class HomeController : Controller
 	{
 		private readonly ILogger<HomeController> _logger;
-		private readonly UserMock _user;
-		private readonly ProjectsMock _projects;
+		private readonly IUsers _user;
+		private readonly IProjects _projects;
 
-		public HomeController(ILogger<HomeController> logger, UserMock user, ProjectsMock projects)
+		public HomeController(ILogger<HomeController> logger, IUsers user, IProjects projects)
 		{
 			this._logger = logger;
 			this._user = user;
