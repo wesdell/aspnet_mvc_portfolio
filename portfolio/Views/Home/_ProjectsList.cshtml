@@ -1,6 +1,8 @@
 ﻿@model IEnumerable<ProjectViewModel>
 
-<div class="container">
+@if (Model is not null)
+{
+	<div class="container">
 		<div class="row row-cols-1 row-cols-md-3 g-4">
 			@foreach (var project in Model)
 			{
@@ -19,3 +21,4 @@
 			}
 		</div>
 	</div>
+}
