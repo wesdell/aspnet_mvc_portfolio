@@ -35,6 +35,12 @@ namespace portfolio.Controllers
 			return View();
 		}
 
+		[HttpPost]
+		public IActionResult Contact(ContactViewModel formData)
+		{
+			return View();
+		}
+
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()
 		{
